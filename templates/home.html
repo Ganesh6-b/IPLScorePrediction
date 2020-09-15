@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+    /* Make the image fully responsive */
+    .carousel-inner img {
+      width: 50%;
+      margin-left:25%;
+      height: 350px;
+    }
+    * {
+        box-sizing: border-box;
+      }
+      
+      /* Create two equal columns that floats next to each other */
+      .column {
+        margin-left: 100px;
+
+        float: left;
+        width: 40%;
+        padding: 10px;
+        height: 250px; /* Should be removed. Only for demonstration */
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      .btn{
+        margin-left:47%
+      }
+      
+      /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+        }
+      }
+      .score_class {
+        margin-left: 40%;
+        margin-right:40%;
+        border: 1px dotted blue;
+        padding: 5px;
+        background-color: burlywood;
+      }
+    </style>
+    <title>IPL Predictor</title>
+</head>
+<body style = 'background-image: url({% static "ipl-bcc.jpg" %});'>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'pexels-dom-le-roy-3991976.jpg' %}" alt="Los Angeles" width="1100" height="500">
+        <div class="carousel-caption">
+          <h3>Cricker is EveryWhere!!!</h3>
+          <p>“The assumption now is that the interests of the brand and of the game</p>
+          </p> overlap to the degree that cricket need hardly be mentioned.”</p>
+        </div>   
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'IPL-2020.png' %}" alt="Chicago" width="1100" height="500">
+ 
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'IPL1595557917145.jpg' %}" alt="New York" width="1100" height="500">
+ 
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+  <br>
+  <br>
+
+  {% if score_from and score_to %}
+  <div class = "score_class" >
+  <p>Estimated Score is between {{ score_from }} and {{ score_to }} </p>
+  </div>
+  {% endif %}
+
+  <form action="predicted_score" method = 'POST'>
+     {% csrf_token %}
+    <div class="row">
+        <div class="column" style="background-color:#aaa;">
+            <div class="form-group">
+             <p>Select Batting Team:</p>
+              <select class="form-control" name="bat_team">
+                <option>Chennai Super Kings</option>
+                <option>Delhi Daredevils</option>
+                <option>Kings XI Punjab</option>
+                <option>Kolkata Knight Riders</option>
+                <option>Mumbai Indians</option>
+                <option>Rajasthan Royals</option>
+                <option>Royal Challengers Bangalore</option>
+                <option>Sunrisers Hyderabad</option>
+              </select>
+              <br>
+              <p>Select Bowling Team:</p>
+              <select class="form-control" name="bowl_team">
+                <option>Chennai Super Kings</option>
+                <option>Delhi Daredevils</option>
+                <option>Kings XI Punjab</option>
+                <option>Kolkata Knight Riders</option>
+                <option>Mumbai Indians</option>
+                <option>Rajasthan Royals</option>
+                <option>Royal Challengers Bangalore</option>
+                <option>Sunrisers Hyderabad</option>
+              </select>
+            </div>
+
+    </div>
+    <div class="column" style="background-color:#bbb;">
+      <div class="form-group">
+        Overs:
+        <input type="number" class="form-control"  min = '5' max = '19.5' step = 0.1 name="overs" required>
+      </div>
+      <div class="form-group">
+        Score:
+        <input type="number" class="form-control" min = '0' name="runs" required>
+      </div>
+      <div class="form-group">
+        Wicket:
+        <input type="number" class="form-control" min = '0' max = '9' name="wickets" required>
+      </div>
+    </div>
+  </div>
+  <button type="number" class="btn btn-primary">Submit</button>
+</form>
+  
+</body>
+</html>
