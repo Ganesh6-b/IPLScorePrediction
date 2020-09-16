@@ -25,7 +25,7 @@ SECRET_KEY = 'nue*lx($9z9xu^my95amm5*itp0y309*(xt+ubtf53f5etf+!d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ipl.iplpredictor.com']
+ALLOWED_HOSTS = ['iplscorepredictionmod.herokuapp.com']
 
 
 # Application definition
