@@ -49,6 +49,7 @@ decorator==4.4.2
 defusedxml==0.6.0
 diff-match-patch @ file:///tmp/build/80754af9/diff-match-patch_1594828741838/work
 distributed @ file:///C:/ci/distributed_1594742844291/work
+dj-database-url==0.5.0
 Django==3.1.1
 docutils==0.16
 entrypoints==0.3
@@ -63,6 +64,7 @@ gevent @ file:///C:/ci/gevent_1593005471151/work
 glob2==0.7
 gmpy2==2.0.8
 greenlet==0.4.16
+gunicorn==20.0.4
 h5py==2.10.0
 HeapDict==1.0.1
 html5lib @ file:///tmp/build/80754af9/html5lib_1593446221756/work
@@ -144,6 +146,7 @@ ply==3.11
 prometheus-client==0.8.0
 prompt-toolkit==3.0.5
 psutil==5.7.0
+psycopg2==2.8.6
 py @ file:///tmp/build/80754af9/py_1593446248552/work
 pycodestyle==2.6.0
 pycosat==0.6.3
@@ -226,6 +229,7 @@ watchdog @ file:///C:/ci/watchdog_1593447437088/work
 wcwidth @ file:///tmp/build/80754af9/wcwidth_1593447189090/work
 webencodings==0.5.1
 Werkzeug==1.0.1
+whitenoise==5.2.0
 widgetsnbextension==3.5.1
 win-inet-pton==1.1.0
 win-unicode-console==0.5

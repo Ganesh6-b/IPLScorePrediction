@@ -1,1 +1,1 @@
-web: python manage.py
+web: gunicorn ipl.wsgi --log-file -
